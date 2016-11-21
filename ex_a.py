@@ -38,3 +38,12 @@ write_months('months.txt')
 # TODO 7) write a function having three arguments: first_name, last_name, age and returns dictionary:
 #         {'first_name': first argument, 'last_name': second argument, 'age': third argument}
 
+
+
+# TODO 8) write function multi_table having one parameter n which prints "1 x 4 = 1", "2 x 4 = 2", ... "10 x 4 = 40"
+#         for n = 4
+
+
+
+# TODO 9) write function factor having one parameter n which prints all factors of n
+
