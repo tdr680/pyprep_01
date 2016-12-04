@@ -46,6 +46,15 @@ class Account(object):
                 str += "{0}\t{1}\t{2}\n".format(e[0], e[1], e[2])
         return str
 
+
+class YouthAccount(Account):
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            raise ValueError('negative balance not allowed for youth accounts')
+        Account.withdraw(self, amount)
+
+
 if __name__ == "__main__":
 
     acc_a = Account()
@@ -62,8 +71,8 @@ CREDIT	10	2016-12-04 15:21:20.036392
 DEBIT	100	2016-12-04 15:21:20.036406
     """
 
-    acc_b = Account()
-    acc_b.withdraw(200)
+    acc_b = YouthAccount()
+    acc_b.withdraw(200) # Throws ValueError: negative balance not allowed for youth accounts
     print acc_b
     """
 Account: 1002
