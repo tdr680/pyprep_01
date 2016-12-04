@@ -37,6 +37,14 @@ class Account(object):
         cls.__number += 1
         return cls.__number
 
+    def __str__(self):
+        str = "Account: {0}\n".format(self.__number)
+        str += "Balance: {0}\n".format(self.__balance)
+        if len(self.__history) > 0:
+            str += "History:\n"
+            for e in self.__history:
+                str += "{0}\t{1}\t{2}\n".format(e[0], e[1], e[2])
+        return str
 
 if __name__ == "__main__":
 
@@ -44,14 +52,29 @@ if __name__ == "__main__":
     acc_a.deposit(250)
     acc_a.deposit(10)
     acc_a.withdraw(100)
-    print acc_a.number    # 1001
-    print acc_a.balance   # 160
-    print acc_a.history   # [('CREDIT', 250, '2016-12-04 14:28:55.949813'),
-                          # ('CREDIT', 10, '2016-12-04 14:28:55.950225'),
-                          # ('DEBIT', 100, '2016-12-04 14:28:55.950248')]
+    print acc_a
+    """
+Account: 1001
+Balance: 160
+History:
+CREDIT	250	2016-12-04 15:21:20.035965
+CREDIT	10	2016-12-04 15:21:20.036392
+DEBIT	100	2016-12-04 15:21:20.036406
+    """
+
     acc_b = Account()
     acc_b.withdraw(200)
-    print acc_b.number    # 1002
-    print acc_b.balance   # -200
-    print acc_b.history   # [('DEBIT', 200, '2016-12-04 14:30:02.766961')]
+    print acc_b
+    """
+Account: 1002
+Balance: -200
+History:
+DEBIT	200	2016-12-04 15:21:20.036485
+    """
 
+    acc_c = Account()
+    print acc_c
+    """
+Account: 1003
+Balance: 0
+    """
